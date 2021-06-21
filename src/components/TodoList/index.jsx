@@ -21,13 +21,13 @@ function TodoList(props) {
     }   
 
     return (
-        <ul className='todo-list'>
+        <ul className='tod-list'>
             {todos.map(todo => (
                 <li 
                     key={todo.id}
-                    onClick={() => handleClick(todo)}
                 > 
-                    {todo.title} 
+                    {todo.title}
+                    <button  onClick={() => handleClick(todo)}>delete</button> 
                 </li>
             ))}
         </ul>
