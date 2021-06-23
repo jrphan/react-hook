@@ -6,7 +6,7 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import PostList from './components/postList';
 import Pagination from './components/Pagination';
-
+import PostFiltersForm from './components/PostFiltersForm';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -72,8 +72,18 @@ function App() {
     setTodoList(newTodoList);
   }
 
+  const handleFiltersForm = (newFilters) => {
+    console.log(newFilters);
+    setFilters({
+      ...filters,
+      _page: 1,
+      author_like: newFilters.input,  
+    })
+  };
+
   return (
     <div className="App">
+      <PostFiltersForm onSubmit={handleFiltersForm}/>
       <Pagination 
         pagination={pagination}
         onPageChange={handlePageChange}
